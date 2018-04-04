@@ -1,7 +1,7 @@
 public class TrenoMetro {
 	
 	private int numeroPasseggeri = 0;
-	private Passeggero[] passeggeri;
+	private Passeggero[] passeggeri = new Passeggero[50];
 	
 	public TrenoMetro() {
 		
@@ -17,7 +17,6 @@ public class TrenoMetro {
 		
 		passeggeri[numeroPasseggeri] = p;
 		numeroPasseggeri++;
-		System.out.println("num passeggeri:" + numeroPasseggeri);
 		return true;
 	}
 	
