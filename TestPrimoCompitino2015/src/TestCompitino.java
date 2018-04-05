@@ -70,7 +70,7 @@ public class TestCompitino {
 		m.salitaPasseggero("Bicocca", true);
 		m.salitaPasseggero("Bicocca", true);
 		
-		Passeggero[] daMultare = m.discesaPasseggeri("Bicocca");
+		Passeggero[] daMultare = m.discesaPasseggeri(new String("Bicocca"));
 		assertEquals(1, m.numeroPasseggeri());
 		assertEquals(0, daMultare.length);
 	}
@@ -83,7 +83,7 @@ public class TestCompitino {
 		m.salitaPasseggero("Bicocca", false);
 		m.salitaPasseggero("Bicocca", false);
 		
-		Passeggero[] daMultare = m.discesaPasseggeri("Bicocca");
+		Passeggero[] daMultare = m.discesaPasseggeri(new String("Bicocca"));
 		assertEquals(1, m.numeroPasseggeri());
 		assertEquals(2, daMultare.length);
 		assertEquals("Bicocca", daMultare[0].getDestinazione());
