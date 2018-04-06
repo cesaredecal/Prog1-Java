@@ -6,6 +6,32 @@ import org.junit.Test;
 public class TestCompitino {
 	
 	@Test
+	public void testMetroDiscesaPasseggeriNoMulte() {
+		TrenoMetro m = new TrenoMetro();
+		m.salitaPasseggero("Bicocca", true);
+		m.salitaPasseggero("Bignami", false);
+		m.salitaPasseggero("Bicocca", true);
+		m.salitaPasseggero("Bicocca", true);
+		
+		Passeggero[] daMultare = m.discesaPasseggeri(new String("Bicocca"));
+		assertEquals(1, m.numeroPasseggeri());
+		assertEquals(0, daMultare.length);
+	}
+	
+	@Test
+	public void testMetroNessunoScende() {
+		TrenoMetro m = new TrenoMetro();
+		m.salitaPasseggero("Bicocca", true);
+		m.salitaPasseggero("Bignami", false);
+		m.salitaPasseggero("Bicocca", false);
+		m.salitaPasseggero("Bicocca", false);
+		
+		Passeggero[] daMultare = m.discesaPasseggeri(new String("Zara"));
+		assertEquals(4, m.numeroPasseggeri());
+		assertEquals(0, daMultare.length);
+	}
+	
+	@Test
 	public void testNuovoPasseggero() {
 		Passeggero p = new Passeggero("Bicocca", true);
 		assertEquals("Bicocca", p.getDestinazione());
@@ -47,32 +73,6 @@ public class TestCompitino {
 		assertEquals(50, m.numeroPasseggeri());
 		boolean salito = m.salitaPasseggero("Bignami", true);
 		assertFalse(salito);
-	}
-	
-	@Test
-	public void testMetroNessunoScende() {
-		TrenoMetro m = new TrenoMetro();
-		m.salitaPasseggero("Bicocca", true);
-		m.salitaPasseggero("Bignami", false);
-		m.salitaPasseggero("Bicocca", false);
-		m.salitaPasseggero("Bicocca", false);
-		
-		Passeggero[] daMultare = m.discesaPasseggeri(new String("Zara"));
-		assertEquals(4, m.numeroPasseggeri());
-		assertEquals(0, daMultare.length);
-	}
-
-	@Test
-	public void testMetroDiscesaPasseggeriNoMulte() {
-		TrenoMetro m = new TrenoMetro();
-		m.salitaPasseggero("Bicocca", true);
-		m.salitaPasseggero("Bignami", false);
-		m.salitaPasseggero("Bicocca", true);
-		m.salitaPasseggero("Bicocca", true);
-		
-		Passeggero[] daMultare = m.discesaPasseggeri(new String("Bicocca"));
-		assertEquals(1, m.numeroPasseggeri());
-		assertEquals(0, daMultare.length);
 	}
 
 	@Test
